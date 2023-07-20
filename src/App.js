@@ -5,7 +5,7 @@ const App = () => {
   return (
     <div>
     <div>App</div>
-    <Video />
+    <Video title="ReactJS Tutorial"/>
     <Thumb />
     </div>
   )
