@@ -1,11 +1,12 @@
 import React from 'react'
-import Video from './components/Video'
+import {Video, Thumb} from './components/Video'
 
 const App = () => {
   return (
     <div>
     <div>App</div>
-    <Video/>
+    <Video />
+    <Thumb />
     </div>
   )
 }
