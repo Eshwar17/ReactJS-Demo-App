@@ -7,7 +7,7 @@ const Video = () => {
 }
 function Thumb() {
     return (
-        <div>
+        <div style={{backgroundColor:'red'}}>
             Thumb
         </div>
     )
