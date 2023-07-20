@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Video = (props) => {
+const Video = ({title}) => {
   return (
-    <div>{props.title}</div>
+    <div>{title}</div>
   )
 }
 function Thumb() {
