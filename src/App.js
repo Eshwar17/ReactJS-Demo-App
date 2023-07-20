@@ -2,24 +2,22 @@
 import './App.css';
 
 function App() {
+  let name = "React App";
+  let className = "App-header";
   return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={className}>
+      {name}
+      <Demo></Demo>
     </div>
   );
+}
+
+function Demo() {
+  return (
+    <div className="App-header">
+      <h2>I am Demo</h2>
+    </div>
+  )
 }
 
 export default App;
