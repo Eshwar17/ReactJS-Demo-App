@@ -1,12 +1,15 @@
 import React from 'react'
-import {Video, Thumb} from './components/Video'
+import Video from './components/Video'
+import './App.css';
 
 const App = () => {
   return (
-    <div>
+    <div className='app'>
     <div>App</div>
-    <Video title="ReactJS Tutorial"/>
-    <Thumb />
+    <Video title="ReactJS Tutorial" views={1000} channel="Eshwar Nagaraj" time={1}/>
+    <Video title="ReactJS Tutorial" views={1000} channel="Eshwar Nagaraj" time={1}/>
+    <Video title="ReactJS Tutorial" views={1000} channel="Eshwar Nagaraj" time={1}/>
+    <Video title="ReactJS Tutorial" views={1000} channel="Eshwar Nagaraj" time={1}/>
     </div>
   )
 }
