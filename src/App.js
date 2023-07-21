@@ -8,8 +8,10 @@ const App = () => {
   
   return <><div className="app">
     {videos.map(video => <Video key={video.id} id={video.id} title={video.title} views={video.views} channel={video.channel} time={video.time} verified={video.verified}/>)}
-  </div><PlayButton name="Play"/>
-  <PlayButton name="Pause"/></>;
+  </div>
+  <PlayButton>Play Button</PlayButton>
+  <PlayButton>Pause Button</PlayButton>
+  </>;
 };
 
 export default App;
