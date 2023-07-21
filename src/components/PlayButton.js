@@ -1,7 +1,10 @@
 import './PlayButton.css'
-function PlayButton({children}) {
+function PlayButton({children,onPlay,onPause}) {
+    let playing = false;
     function handleClick() {
-        console.log("Play button clicked");
+        if(playing) onPause();
+        else    onPlay();
+        playing = !playing
     }
     return (
         <button onClick={handleClick}>{children}</button>
