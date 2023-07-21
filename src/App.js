@@ -5,6 +5,7 @@ import "./App.css";
 const App = () => {
   let videos = [
     {
+      id:1,
       title: "NodeJS tutorial",
       views: "12K",
       channel: "InternPixel",
@@ -12,6 +13,7 @@ const App = () => {
       verified: true,
     },
     {
+      id:2,
       title: "ReactJS tutorial",
       views: "200K",
       channel: "Eshwar Nagaraj",
@@ -19,6 +21,7 @@ const App = () => {
       verified: false,
     },
     {
+      id:3,
       title: "Java tutorial",
       views: "20K",
       channel: "InternPixel",
@@ -27,7 +30,7 @@ const App = () => {
     },
   ];
   return <div className="app">
-    {videos.map(video => <Video title={video.title} views={video.views} channel={video.channel} time={video.time} verified={video.verified}/>)}
+    {videos.map(video => <Video id={video.id} title={video.title} views={video.views} channel={video.channel} time={video.time} verified={video.verified}/>)}
   </div>;
 };
 
