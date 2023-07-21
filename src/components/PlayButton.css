@@ -1,0 +1,12 @@
+button {
+    background-color: rgb(26, 22, 22);
+    color: aliceblue;
+    padding: 2em;
+    border: 1px solid yellow;
+    border-radius: 16px;
+    width: 200px;
+}
+button:hover {
+    background-color: aliceblue;
+    color: black;
+}
