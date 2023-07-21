@@ -1,7 +1,7 @@
 import './PlayButton.css'
-function PlayButton({name}) {
+function PlayButton({children}) {
     return (
-        <button onClick={() =>console.log("Play button clicked")}>{name}</button>
+        <button onClick={() =>console.log("Play button clicked")}>{children}</button>
     )
 }
 export default PlayButton;
