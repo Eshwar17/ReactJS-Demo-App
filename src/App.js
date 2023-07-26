@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import Video from "./components/Video";
 import "./App.css";
 import videoDB from './data/data'
-import PlayButton from "./components/PlayButton";
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 
@@ -13,6 +11,7 @@ const App = () => {
   }
 
   function deleteVideo(id) {
+    setVideos(videos.filter(video=>video.id!==id))
     console.log(id);
   }
   
