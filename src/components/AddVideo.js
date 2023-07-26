@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './AddVideo.css'
 
 const initialState = 
@@ -10,7 +10,7 @@ const initialState =
         verified: true,
       }
 
-function AddVideo({addVideo}) {
+function AddVideo({addVideo,editableVideo}) {
     const [video, setVideo] = useState(initialState)
     function handleClick(e) {
         e.preventDefault()
@@ -23,6 +23,12 @@ function AddVideo({addVideo}) {
             [e.target.name]: e.target.value
         })
     }
+
+    useEffect(()=>{
+        if(editableVideo){
+            setVideo(editableVideo)
+        }
+    },[editableVideo])
     return (
         <form>
             <input type="text" name='title' value={video.title} onChange={handleChange} placeholder="title"/>
