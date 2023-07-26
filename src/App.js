@@ -14,10 +14,13 @@ const App = () => {
     setVideos(videos.filter(video=>video.id!==id))
     console.log(id);
   }
+  function editVideo(id) {
+    console.log(id);
+  }
   
   return <>
   <AddVideo addVideo={addVideo}/><div className="app" onClick={()=>console.log("App component")}>
-    <VideoList deleteVideo={deleteVideo} videos={videos}/>
+    <VideoList deleteVideo={deleteVideo} editVideo={editVideo} videos={videos}/>
     
   </div>
   </>;
