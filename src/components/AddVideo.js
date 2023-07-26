@@ -33,7 +33,7 @@ function AddVideo({addVideo,editableVideo}) {
         <form>
             <input type="text" name='title' value={video.title} onChange={handleChange} placeholder="title"/>
             <input type="text" name='views' value={video.views} onChange={handleChange} placeholder="views"/>
-            <button onClick={handleClick}>Submit</button>
+            <button onClick={handleClick}>{editableVideo?'Edit':'Add'} Video</button>
         </form>
     )
 }
