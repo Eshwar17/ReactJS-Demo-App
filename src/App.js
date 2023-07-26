@@ -6,6 +6,7 @@ import VideoList from "./components/VideoList";
 
 const App = () => {
   const [videos,setVideos] = useState(videoDB);
+  const [editableVideo,setEditableVideo] = useState(null);
   function addVideo(video) {
     setVideos([...videos,{...video,id:videos.length+1}])
   }
@@ -15,11 +16,12 @@ const App = () => {
     console.log(id);
   }
   function editVideo(id) {
+    setEditableVideo(videos.find(video=>video.id===id))
     console.log(id);
   }
   
   return <>
-  <AddVideo addVideo={addVideo}/><div className="app" onClick={()=>console.log("App component")}>
+  <AddVideo addVideo={addVideo} editableVideo={editableVideo}/><div className="app" onClick={()=>console.log("App component")}>
     <VideoList deleteVideo={deleteVideo} editVideo={editVideo} videos={videos}/>
     
   </div>
