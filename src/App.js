@@ -11,10 +11,14 @@ const App = () => {
   function addVideo(video) {
     setVideos([...videos,{...video,id:videos.length+1}])
   }
+
+  function deleteVideo(id) {
+    console.log(id);
+  }
   
   return <>
   <AddVideo addVideo={addVideo}/><div className="app" onClick={()=>console.log("App component")}>
-    <VideoList videos={videos}/>
+    <VideoList deleteVideo={deleteVideo} videos={videos}/>
     
   </div>
   </>;
