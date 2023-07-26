@@ -10,11 +10,15 @@ const initialState =
         verified: true,
       }
 
-function AddVideo({addVideo,editableVideo}) {
+function AddVideo({addVideo,updateVideo,editableVideo}) {
     const [video, setVideo] = useState(initialState)
     function handleClick(e) {
         e.preventDefault()
-        addVideo(video);
+        if(editableVideo){
+            updateVideo(video);
+        }else{
+            addVideo(video);
+        }
         setVideo(initialState)
     }
     function handleChange(e) {
