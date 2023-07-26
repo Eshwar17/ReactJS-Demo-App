@@ -19,9 +19,16 @@ const App = () => {
     setEditableVideo(videos.find(video=>video.id===id))
     console.log(id);
   }
+  function updateVideo(video) {
+    const index = videos.findIndex(v=>v.id===video.id);
+    const newVideos = [...videos]
+    newVideos.splice(index, 1, video);
+    setVideos(newVideos)
+    console.log(newVideos)
+  }
   
   return <>
-  <AddVideo addVideo={addVideo} editableVideo={editableVideo}/><div className="app" onClick={()=>console.log("App component")}>
+  <AddVideo addVideo={addVideo} updateVideo={updateVideo} editableVideo={editableVideo}/><div className="app" onClick={()=>console.log("App component")}>
     <VideoList deleteVideo={deleteVideo} editVideo={editVideo} videos={videos}/>
     
   </div>
