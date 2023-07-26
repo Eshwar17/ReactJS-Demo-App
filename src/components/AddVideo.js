@@ -15,6 +15,7 @@ function AddVideo({addVideo}) {
     function handleClick(e) {
         e.preventDefault()
         addVideo(video);
+        setVideo(initialState)
     }
     function handleChange(e) {
         setVideo({
