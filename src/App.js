@@ -3,6 +3,7 @@ import "./App.css";
 import videoDB from './data/data'
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
+import VideoDispatchContext from "./context/VideoDispatchContext";
 
 const App = () => {
   const [editableVideo,setEditableVideo] = useState(null);
@@ -25,9 +26,7 @@ const App = () => {
   }
 
   const [videos,dispatch] = useReducer(videoReducer,videoDB)
-  function addVideo(video) {
-    
-  }
+  
 
   function editVideo(id) {
     setEditableVideo(videos.find(video=>video.id===id))
@@ -36,10 +35,13 @@ const App = () => {
 
   
   return <>
-  <AddVideo dispatch={dispatch} editableVideo={editableVideo}/><div className="app" onClick={()=>console.log("App component")}>
-    <VideoList dispatch={dispatch} editVideo={editVideo} videos={videos}/>
+  <VideoDispatchContext.Provider value={dispatch}>
+  <div className="app" onClick={()=>console.log("App component")}>
+  <AddVideo editableVideo={editableVideo}/>
+    <VideoList editVideo={editVideo} videos={videos}/>
     
   </div>
+  </VideoDispatchContext.Provider>
   </>;
 };
 
