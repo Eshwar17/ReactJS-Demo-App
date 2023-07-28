@@ -26,7 +26,7 @@ const App = () => {
 
   const [videos,dispatch] = useReducer(videoReducer,videoDB)
   function addVideo(video) {
-    dispatch({type:'ADD',payload:video});
+    
   }
 
   function deleteVideo(id) {
@@ -48,7 +48,7 @@ const App = () => {
   }
   
   return <>
-  <AddVideo addVideo={addVideo} updateVideo={updateVideo} editableVideo={editableVideo}/><div className="app" onClick={()=>console.log("App component")}>
+  <AddVideo dispatch={dispatch} updateVideo={updateVideo} editableVideo={editableVideo}/><div className="app" onClick={()=>console.log("App component")}>
     <VideoList deleteVideo={deleteVideo} editVideo={editVideo} videos={videos}/>
     
   </div>
