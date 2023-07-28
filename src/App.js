@@ -5,6 +5,7 @@ import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 
 const App = () => {
+  const [editableVideo,setEditableVideo] = useState(null);
   // const [videos,setVideos] = useState(videoDB);
   function videoReducer(videos, action) {
     switch(action.type){
@@ -16,6 +17,7 @@ const App = () => {
         const index = videos.findIndex(v=>v.id===action.payload.id);
         const newVideos = [...videos]
         newVideos.splice(index, 1, action.payload);
+        setEditableVideo(null);
         return newVideos;
       default:
         return videos;
@@ -23,7 +25,6 @@ const App = () => {
   }
 
   const [videos,dispatch] = useReducer(videoReducer,videoDB)
-  const [editableVideo,setEditableVideo] = useState(null);
   function addVideo(video) {
     dispatch({type:'ADD',payload:video});
   }
