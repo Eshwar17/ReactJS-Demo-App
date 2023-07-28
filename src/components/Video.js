@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Video.css';
+import VideoDispatchContext from '../context/VideoDispatchContext';
 
-const Video = ({id,title,views,channel,time,verified,dispatch,editVideo}) => {
+const Video = ({id,title,views,channel,time,verified,editVideo}) => {
+  const dispatch = useContext(VideoDispatchContext)
   return (
     <div className='container'>
     <button className="close" onClick={()=> dispatch({type:'DELETE',payload:id})}>X</button>
