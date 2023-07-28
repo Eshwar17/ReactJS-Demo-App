@@ -29,11 +29,6 @@ const App = () => {
     
   }
 
-  function deleteVideo(id) {
-    dispatch({type:'DELETE',payload:id})
-    // setVideos()
-    // console.log(id);
-  }
   function editVideo(id) {
     setEditableVideo(videos.find(video=>video.id===id))
     console.log(id);
@@ -42,7 +37,7 @@ const App = () => {
   
   return <>
   <AddVideo dispatch={dispatch} editableVideo={editableVideo}/><div className="app" onClick={()=>console.log("App component")}>
-    <VideoList deleteVideo={deleteVideo} editVideo={editVideo} videos={videos}/>
+    <VideoList dispatch={dispatch} editVideo={editVideo} videos={videos}/>
     
   </div>
   </>;
