@@ -1,30 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import "./App.css";
 import videoDB from './data/data'
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 
 const App = () => {
-  const [videos,setVideos] = useState(videoDB);
+  // const [videos,setVideos] = useState(videoDB);
+  function videoReducer(videos, action) {
+    switch(action.type){
+      case 'ADD':
+        return [...videos,{...action.payload,id:videos.length+1}];
+      case 'DELETE':
+        return videos.filter(video=>video.id!==action.payload)
+      case 'UPDATE':
+        const index = videos.findIndex(v=>v.id===action.payload.id);
+        const newVideos = [...videos]
+        newVideos.splice(index, 1, action.payload);
+        return newVideos;
+      default:
+        return videos;
+    }
+  }
+
+  const [videos,dispatch] = useReducer(videoReducer,videoDB)
   const [editableVideo,setEditableVideo] = useState(null);
   function addVideo(video) {
-    setVideos([...videos,{...video,id:videos.length+1}])
+    dispatch({type:'ADD',payload:video});
   }
 
   function deleteVideo(id) {
-    setVideos(videos.filter(video=>video.id!==id))
-    console.log(id);
+    dispatch({type:'DELETE',payload:id})
+    // setVideos()
+    // console.log(id);
   }
   function editVideo(id) {
     setEditableVideo(videos.find(video=>video.id===id))
     console.log(id);
   }
   function updateVideo(video) {
-    const index = videos.findIndex(v=>v.id===video.id);
-    const newVideos = [...videos]
-    newVideos.splice(index, 1, video);
-    setVideos(newVideos)
-    console.log(newVideos)
+    // const index = videos.findIndex(v=>v.id===video.id);
+    // const newVideos = [...videos]
+    // newVideos.splice(index, 1, video);
+    // setVideos(newVideos)
+    // console.log(newVideos)
+    dispatch({type:'UPDATE',payload:video})
   }
   
   return <>
