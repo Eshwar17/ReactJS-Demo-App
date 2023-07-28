@@ -38,17 +38,10 @@ const App = () => {
     setEditableVideo(videos.find(video=>video.id===id))
     console.log(id);
   }
-  function updateVideo(video) {
-    // const index = videos.findIndex(v=>v.id===video.id);
-    // const newVideos = [...videos]
-    // newVideos.splice(index, 1, video);
-    // setVideos(newVideos)
-    // console.log(newVideos)
-    dispatch({type:'UPDATE',payload:video})
-  }
+
   
   return <>
-  <AddVideo dispatch={dispatch} updateVideo={updateVideo} editableVideo={editableVideo}/><div className="app" onClick={()=>console.log("App component")}>
+  <AddVideo dispatch={dispatch} editableVideo={editableVideo}/><div className="app" onClick={()=>console.log("App component")}>
     <VideoList deleteVideo={deleteVideo} editVideo={editVideo} videos={videos}/>
     
   </div>
