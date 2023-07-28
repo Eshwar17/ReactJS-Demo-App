@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './AddVideo.css'
+import VideoDispatchContext from '../context/VideoDispatchContext';
 
 const initialState = 
     {
@@ -10,8 +11,9 @@ const initialState =
         verified: true,
       }
 
-function AddVideo({dispatch,editableVideo}) {
+function AddVideo({editableVideo}) {
     const [video, setVideo] = useState(initialState)
+    const dispatch = useContext(VideoDispatchContext)
     function handleClick(e) {
         e.preventDefault()
         if(editableVideo){
